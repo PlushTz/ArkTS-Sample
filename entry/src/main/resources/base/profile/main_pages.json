@@ -1,0 +1,8 @@
+{
+  "src": [
+    "pages/SplashView",
+    "pages/Index",
+    "pages/Second",
+    "pages/LoginView"
+  ]
+}
