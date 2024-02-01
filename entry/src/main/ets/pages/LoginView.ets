@@ -1,7 +1,6 @@
 import StringUtils from '../utils/StringUtils'
-import prompt from '@ohos.prompt';
-import promptAction from '@ohos.promptAction';
 import toaster from '../views/Toaster';
+import httpUtils from '../net/HttpUtils';
 
 @Entry
 @Component
@@ -71,14 +70,15 @@ struct LoginView {
         .borderRadius(8)
         .type(ButtonType.Normal)
         .onClick(() => {
-          if (StringUtils.isEmpty(this.username)) {
+          /*if (StringUtils.isEmpty(this.username)) {
             toaster.showToaster('请输入用户名', 500)
             return
           }
           if (StringUtils.isEmpty(this.password)) {
             toaster.showToaster('请输入密码', 500)
             return
-          }
+          }*/
+          httpUtils.query(110101);
         })
         .alignRules({
           top: { anchor: 'input_verification_code', align: VerticalAlign.Bottom },
