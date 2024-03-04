@@ -1,6 +1,8 @@
 import StringUtils from '../utils/StringUtils'
 import toaster from '../views/Toaster';
 import httpUtils from '../net/HttpUtils';
+import router from '@ohos.router';
+import url from '@ohos.url';
 
 @Entry
 @Component
@@ -78,7 +80,14 @@ struct LoginView {
             toaster.showToaster('请输入密码', 500)
             return
           }*/
-          httpUtils.query(110101);
+          // httpUtils.query(110101);
+          router.replaceUrl({ url: 'pages/HomePage' }, router.RouterMode.Standard, (err) => {
+            if (err) {
+              console.error('Invoke pushUrl failed,code is ${err.code},message is ${err.message}');
+              return;
+            }
+            console.debug('Invoke pushUrl success!');
+          })
         })
         .alignRules({
           top: { anchor: 'input_verification_code', align: VerticalAlign.Bottom },

@@ -3,6 +3,7 @@
     "pages/SplashView",
     "pages/Index",
     "pages/Second",
-    "pages/LoginView"
+    "pages/LoginView",
+    "pages/HomePage"
   ]
 }
