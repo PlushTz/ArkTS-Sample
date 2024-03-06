@@ -36,15 +36,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "SecondAbility",
-        "srcEntry": "./ets/uiability/SecondAbility.ts",
-        "description": "$string:UIAbility_desc",
-        "icon": "$media:icon",
-        "label": "$string:UIAbility_label",
-        "startWindowIcon": "$media:icon",
-        "startWindowBackground": "$color:start_window_background"
       }
     ]
   }

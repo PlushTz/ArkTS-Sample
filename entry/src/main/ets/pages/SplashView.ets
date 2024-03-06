@@ -1,5 +1,5 @@
 import router from '@ohos.router';
-
+@Preview({title:'SplashView'})
 @Entry
 @Component
 struct SplashView {

@@ -1,4 +1,6 @@
-import { Chat } from './Chat'
+import { Chat } from './ChatPage';
+import { ContactPage } from './ContactPage';
+import { PersonPage } from './PersonPage';
 
 @Entry
 @Component
@@ -13,12 +15,12 @@ struct HomePage {
       }.tabBar(this.TabBuilder('消息', 0, $r('app.media.tabbar_dudu_visited_icon'), $r('app.media.tabbar_dudu_icon')))
 
       TabContent() {
-        Text('通讯录').fontSize(30)
+        ContactPage()
       }
       .tabBar(this.TabBuilder('通讯录', 1, $r('app.media.tabbar_contact_visited_icon'), $r('app.media.tabbar_contact_icon')))
 
       TabContent() {
-        Text('个人中心').fontSize(30)
+        PersonPage()
       }
       .tabBar(this.TabBuilder('个人中心', 2, $r('app.media.tabbar_person_visited_icon'), $r('app.media.tabbar_person_icon')))
     }.onChange((index) => {

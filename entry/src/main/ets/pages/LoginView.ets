@@ -15,7 +15,7 @@ struct LoginView {
       Row() {
         Image($r('app.media.start_logo_icon')).objectFit(ImageFit.None)
       }
-      .margin({ top: 100, left: 100 })
+      .margin({ top: 23, left: 23 })
       .alignRules({
         top: { anchor: '__container__', align: VerticalAlign.Top },
         left: { anchor: '__container__', align: HorizontalAlign.Start }
@@ -23,12 +23,12 @@ struct LoginView {
       .width('100')
       .height('100')
       .id('login_logo')
+      .backgroundColor($r('app.color.white'))
 
       Text('Hello!欢迎登录')
         .fontSize('35')
         .fontColor($r('app.color.black'))
         .fontStyle(FontStyle.Normal)
-        .margin({ top: 20 })
         .alignRules({
           top: { anchor: 'login_logo', align: VerticalAlign.Bottom },
           left: { anchor: 'login_logo', align: HorizontalAlign.Center }
@@ -36,7 +36,7 @@ struct LoginView {
         .id('label_login')
 
       TextInput({ placeholder: '请输入用户名' })
-        .margin({ top: 50, right: 100 })
+        .margin({ top: 50, right: 50 })
         .height('45')
         .type(InputType.Normal)
         .onChange((value) => {

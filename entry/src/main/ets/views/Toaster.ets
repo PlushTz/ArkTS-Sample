@@ -1,6 +1,6 @@
 import promptAction from '@ohos.promptAction';
 
-class Toaster {
+export class Toaster {
   showToaster(message: string, bottom: string | number) {
     promptAction.showToast({ message: message, duration: 2000, bottom: bottom })
   }
