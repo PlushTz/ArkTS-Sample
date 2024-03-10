@@ -1,4 +1,4 @@
-class StringUtils {
+export class StringUtils {
   isEmpty(value: string): Boolean {
     return value.trim() === '' || value.length == 0;
   }

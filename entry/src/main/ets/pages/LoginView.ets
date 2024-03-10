@@ -1,4 +1,5 @@
-import StringUtils from '../utils/StringUtils'
+// import StringUtils from '../utils/StringUtils'
+import {StringUtils} from '../utils/StringUtils'
 import toaster from '../views/Toaster';
 import httpUtils from '../net/HttpUtils';
 import router from '@ohos.router';

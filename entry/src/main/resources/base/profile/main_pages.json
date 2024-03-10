@@ -4,6 +4,8 @@
     "pages/Index",
     "pages/Second",
     "pages/LoginView",
-    "pages/HomePage"
+    "pages/HomePage",
+    "pages/ImagePage",
+    "pages/LoginPage"
   ]
 }

@@ -11,7 +11,7 @@ export struct Chat {
         isShowMenu: true,
         menuIcon: $r('app.media.icon_search'),
         onMenuClick: () => {
-          router.pushUrl({ url: 'pages/Second' })
+          router.pushUrl({ url: 'pages/LoginPage' })
         }
       })
     }
