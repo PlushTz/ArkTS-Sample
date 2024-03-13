@@ -2,7 +2,7 @@ import router from '@ohos.router';
 @Preview({title:'SplashView'})
 @Entry
 @Component
-struct SplashView {
+struct SplashPage {
   @State intervalID: number = 0;
 
   build() {
@@ -17,7 +17,7 @@ struct SplashView {
             delay: 100,
             onFinish: () => {
               setTimeout(() => {
-                router.replaceUrl({ url: 'pages/LoginView' });
+                router.replaceUrl({ url: 'pages/LoginPage' });
               }, 1000);
             }
           }, () => {
@@ -26,14 +26,4 @@ struct SplashView {
     }.width('100%')
     .height('100%')
   }
-
-  // onPageShow() {
-  //   this.intervalID = setInterval(() => {
-  //     router.replaceUrl({ url: 'pages/LoginView' });
-  //   }, 1000)
-  // }
-  //
-  // onPageHide() {
-  //   clearInterval(this.intervalID)
-  // }
 }

@@ -3,21 +3,30 @@
     {
       "name": "start_window_background",
       "value": "#FFFFFF"
-    },{
+    },
+    {
       "name": "black",
       "value": "#000000"
-    },{
+    },
+    {
       "name": "DarkSlateBlue",
       "value": "#483D8B"
-    },{
+    },
+    {
       "name": "tab_tv_pressed",
       "value": "#3f93ea"
-    },{
+    },
+    {
       "name": "tab_tv_normal",
       "value": "#abaeb1"
-    },{
+    },
+    {
       "name": "white",
       "value": "#FFFFFF"
+    },
+    {
+      "name": "blue",
+      "value": "#197cff"
     }
   ]
 }

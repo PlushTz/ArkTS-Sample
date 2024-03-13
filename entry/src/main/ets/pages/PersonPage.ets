@@ -1,4 +1,4 @@
-import { Toolbar } from '../views/Toolbar';
+import { Toolbar } from '../common/CommonComponents';
 /**
  * Desc:
  * @author lijt

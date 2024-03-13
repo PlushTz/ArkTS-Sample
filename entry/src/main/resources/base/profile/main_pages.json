@@ -1,9 +1,7 @@
 {
   "src": [
-    "pages/SplashView",
+    "pages/SplashPage",
     "pages/Index",
-    "pages/Second",
-    "pages/LoginView",
     "pages/HomePage",
     "pages/ImagePage",
     "pages/LoginPage"

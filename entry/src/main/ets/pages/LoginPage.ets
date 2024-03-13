@@ -1,72 +1,92 @@
 /**
  * Desc:
  * @author lijt
- * Created on 2024/3/9
+ * Created on 2024/3/13
  * Email: lijt@eetrust.com
  */
-import { ImageUrl } from '../globle/ImageUrl'
-import { ImageMode } from '../mode/ImageMode'
+import router from '@ohos.router'
 
 @Entry
 @Component
-export struct LoginPage {
-  private images: ImageMode[] = [
-    new ImageMode(0, ImageUrl.URL1),
-    new ImageMode(1, ImageUrl.URL2),
-    new ImageMode(2, ImageUrl.URL1),
-    new ImageMode(3, ImageUrl.URL2),
-    new ImageMode(4, ImageUrl.URL1),
-    new ImageMode(5, ImageUrl.URL2),
-    new ImageMode(6, ImageUrl.URL1),
-    new ImageMode(7, ImageUrl.URL2),]
-  private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+struct LoginPage {
+  @State username: string = ''
+  @State password: string = ''
 
   build() {
     Column() {
-      List({ space: 10 }) {
-        ForEach(this.images, (item: ImageMode) => {
-          ListItem() {
-            Row() {
-              if (item.index % 2 === 0) {
-                Image(item.url)
-                  .width('100%')
-                  .borderColor($r('app.color.black'))
-                  .objectFit(ImageFit.Contain)
-                  .borderRadius(10)
-                  .interpolation(ImageInterpolation.High)
-              } else {
-                Image(item.url)
-                  .width('100%')
-                  .borderColor($r('app.color.black'))
-                  .objectFit(ImageFit.Contain)
-                  .borderRadius(10)
-                  .interpolation(ImageInterpolation.High)
-              }
-
-            }.width('100%').backgroundColor($r('app.color.tab_tv_pressed')).borderRadius(10)
-            // Text('' + item)
-            //   .width('100%')
-            //   .height(100)
-            //   .fontSize(16)
-            //   .textAlign(TextAlign.Center)
-            //   .borderRadius(10)
-            //   .backgroundColor(0xFFFFFF)
-          }
-        })
+      Row() {
+        Image($r('app.media.start_logo_icon')).width(80)
+          .margin({ top: 30, left: 30, bottom: 30 })
       }
-      .width('95%')
-      .height('100%')
-      .listDirection(Axis.Vertical) // 排列方向
-      // .divider({ strokeWidth: 1, color: 0xFFFFFF, startMargin: 20, endMargin: 20 }) // 每行之间的分界线
-      .edgeEffect(EdgeEffect.Spring) // 滑动到边缘无效果
-      .onScrollIndex((firstIndex: number, lastIndex: number) => {
-        console.info('first' + firstIndex)
-        console.info('last' + lastIndex)
-      })
+      .width('100%')
+      .backgroundColor($r('app.color.white'))
+
+      Row() {
+        Text('Hello!欢迎登录')
+          .fontSize(30)
+          .fontColor($r('app.color.black'))
+          .margin({ left: 38, bottom: 20 })
+      }
+      .width('100%')
+      .backgroundColor($r('app.color.start_window_background'))
+
+      Row() {
+        Blank().width(35)
+        TextInput({ placeholder: '请输入账号' })
+          .type(InputType.Normal)
+          .layoutWeight(1)
+          .height(45)
+          .margin({ top: 30 })
+          .onChange((value) => {
+            this.username = value
+          })
+        Blank().width(35)
+      }
+      .width('100%')
+      .backgroundColor($r('app.color.white'))
+
+      Row() {
+        Blank().width(35)
+        TextInput({ placeholder: '请输入密码' })
+          .type(InputType.Password)
+          .layoutWeight(1)
+          .height(45)
+          .margin({ top: 30 })
+          .onChange((value) => {
+            this.password = value
+          })
+        Blank().width(35)
+      }
+      .width('100%')
+      .backgroundColor($r('app.color.white'))
+
+      Row() {
+        Blank().width(35)
+        Button('登录')
+          .height(45)
+          .stateEffect(true)
+          .layoutWeight(1)
+          .margin({ top: 30 })
+          .onClick(() => {
+            router.replaceUrl({ url: 'pages/HomePage' })
+          })
+        Blank().width(35)
+      }.width('100%').backgroundColor($r('app.color.white'))
+
+      Row() {
+        Row() {
+          Checkbox().onChange((value: boolean) => {
+
+          })
+          Text('《隐私政策》')
+            .fontSize(14)
+            .fontColor($r('app.color.blue'))
+            .layoutWeight(1)
+        }.margin({ left: 35, top: 35 })
+      }
     }
     .width('100%')
     .height('100%')
-    .backgroundColor(0xDCDCDC)
-    .padding({ top: 5 })
+    .backgroundColor($r('app.color.white'))
   }
 }

@@ -1,9 +1,25 @@
-import router from '@ohos.router';
-import Toaster from '../views/Toaster';
-import { Toolbar } from '../views/Toolbar';
+import router from '@ohos.router'
+import Toaster from '../views/Toaster'
+import { Toolbar } from '../common/CommonComponents'
+import { ListPage } from '../pages/ListPage'
+import { ImageMode } from '../mode/ImageMode'
+import List from '@ohos.util.List'
+import { ImageUrl } from '../globle/ImageUrl'
 
+@Entry
 @Component
 export struct Chat {
+  private data: Array<ImageMode> = [
+    new ImageMode(0, ImageUrl.URL1),
+    new ImageMode(1, ImageUrl.URL2),
+    new ImageMode(2, ImageUrl.URL1),
+    new ImageMode(3, ImageUrl.URL2),
+    new ImageMode(4, ImageUrl.URL1),
+    new ImageMode(5, ImageUrl.URL2),
+    new ImageMode(6, ImageUrl.URL1),
+    new ImageMode(7, ImageUrl.URL2)
+  ]
+
   build() {
     Column() {
       Toolbar({
@@ -14,6 +30,10 @@ export struct Chat {
           router.pushUrl({ url: 'pages/LoginPage' })
         }
       })
+      ListPage({ data: this.data }).layoutWeight(1)
     }
+    .width('100%')
+    .height('100%')
+    .backgroundColor($r('app.color.DarkSlateBlue'))
   }
 }
