@@ -6,7 +6,7 @@ import { ImageMode } from '../mode/ImageMode'
 import List from '@ohos.util.List'
 import { ImageUrl } from '../globle/ImageUrl'
 
-@Entry
+@Preview
 @Component
 export struct Chat {
   private data: Array<ImageMode> = [
@@ -30,10 +30,12 @@ export struct Chat {
           router.pushUrl({ url: 'pages/LoginPage' })
         }
       })
-      ListPage({ data: this.data }).layoutWeight(1)
+      ListPage({ data: this.data, onItemClick: (item) => {
+        console.log(item.index.toString() + ',' + item.url)
+      } }).width('100%').layoutWeight(1)
     }
     .width('100%')
     .height('100%')
-    .backgroundColor($r('app.color.DarkSlateBlue'))
+    .backgroundColor($r('app.color.white'))
   }
 }

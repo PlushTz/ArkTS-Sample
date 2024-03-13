@@ -31,6 +31,8 @@ export struct Toolbar {
       .mode(NavigationMode.Stack)
       .titleMode(NavigationTitleMode.Mini)
       .hideBackButton(this.isShowBack)
+      .width('100%')
+      .height(50)
       .menus(this.NavigationMenu($r('app.media.icon_search')))
   }
 }
