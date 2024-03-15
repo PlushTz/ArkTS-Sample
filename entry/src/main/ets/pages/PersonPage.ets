@@ -9,7 +9,13 @@ import { Toolbar } from '../common/CommonComponents';
 export struct PersonPage {
   build() {
     Column() {
-      Toolbar({ title: '个人中心', isShowMenu: false })
-    }
+      Toolbar({
+        title: '个人中心',
+        titleColor: $r('app.color.white'),
+        titleMode: NavigationTitleMode.Mini
+      }).height(50).backgroundColor($r('app.color.black'))
+
+    }.width('100%')
+    .height('100%')
   }
 }

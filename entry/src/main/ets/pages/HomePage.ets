@@ -1,6 +1,6 @@
-import { Chat } from './ChatPage';
-import { ContactPage } from './ContactPage';
-import { PersonPage } from './PersonPage';
+import { ChatPage } from './ChatPage'
+import { ContactPage } from './ContactPage'
+import { PersonPage } from './PersonPage'
 
 @Entry
 @Component
@@ -11,7 +11,7 @@ struct HomePage {
   build() {
     Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
       TabContent() {
-        Chat()
+        ChatPage()
       }.tabBar(this.TabBuilder('消息', 0, $r('app.media.tabbar_dudu_visited_icon'), $r('app.media.tabbar_dudu_icon')))
 
       TabContent() {

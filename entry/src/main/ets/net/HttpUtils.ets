@@ -9,7 +9,7 @@ class HttpUtils {
     //   console.info('header:' + JSON.stringify(header));
     // });
     let url: string = NetUrl.BASE_URL + "key=" + NetUrl.WEB_KEY + "&city=" + city;
-    console.error('url:' + url);
+    console.error('url:' + url)
     let options: http.HttpRequestOptions = {
       method: http.RequestMethod.GET,
       header: {
@@ -27,8 +27,8 @@ class HttpUtils {
       connectTimeout: 60000, // 可选，默认为60000ms
       readTimeout: 60000, // 可选，默认为60000ms
       usingProtocol: http.HttpProtocol.HTTP1_1, // 可选，协议类型默认值由系统自动指定
-    };
-    console.error('options:' + JSON.stringify(options));
+    }
+    console.error('options:' + JSON.stringify(options))
     httpRequest.request(url, options, (error, data) => {
       if (!error) {
         // data.result为HTTP响应内容，可根据业务需要进行解析
@@ -38,20 +38,20 @@ class HttpUtils {
         console.error('header:' + JSON.stringify(data.header));
         console.error('cookies:' + JSON.stringify(data.cookies)); // 8+
         // 取消订阅HTTP响应头事件
-        httpRequest.off('headersReceive');
+        httpRequest.off('headersReceive')
         // 当该请求使用完毕时，调用destroy方法主动销毁
-        httpRequest.destroy();
+        httpRequest.destroy()
       } else {
-        console.error('error:' + JSON.stringify(error));
+        console.error('error:' + JSON.stringify(error))
         // 取消订阅HTTP响应头事件
-        httpRequest.off('headersReceive');
+        httpRequest.off('headersReceive')
         // 当该请求使用完毕时，调用destroy方法主动销毁。
-        httpRequest.destroy();
+        httpRequest.destroy()
       }
     })
   }
 }
 
-let httpUtils = new HttpUtils();
+let httpUtils = new HttpUtils()
 
-export default httpUtils as HttpUtils;
+export default httpUtils as HttpUtils

@@ -1,6 +1,6 @@
 import hilog from '@ohos.hilog'
-import router from '@ohos.router';
-import common from '@ohos.app.ability.common';
+import router from '@ohos.router'
+import common from '@ohos.app.ability.common'
 
 @Entry
 @Component
@@ -31,9 +31,9 @@ struct Index {
             if (err) {
               console.error(`Invoke pushUrl failed, code is ${err.code}, message is ${err.message}`)
               return;
-              console.info('Invoke pushUrl succeeded.');
+              console.info('Invoke pushUrl succeeded.')
             }
-          });
+          })
         }).margin({ top: 10 })
 
         Button('跳转Ability', { type: ButtonType.Normal, stateEffect: true })
@@ -68,9 +68,9 @@ struct Index {
       };
       let context = getContext(this) as common.UIAbilityContext;
       context.startAbility(want);
-      console.info(`explicit start ability succeed`);
+      console.info(`explicit start ability succeed`)
     } catch (error) {
-      console.info(`explicit start ability failed with ${error.code}`);
+      console.info(`explicit start ability failed with ${error.code}`)
     }
   }
 }

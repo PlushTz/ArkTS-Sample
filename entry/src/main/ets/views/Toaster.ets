@@ -1,4 +1,4 @@
-import promptAction from '@ohos.promptAction';
+import promptAction from '@ohos.promptAction'
 
 export class Toaster {
   showToaster(message: string, bottom: string | number) {
@@ -6,6 +6,6 @@ export class Toaster {
   }
 }
 
-let toaster = new Toaster();
+let toaster = new Toaster()
 
-export default toaster as Toaster;
+export default toaster as Toaster

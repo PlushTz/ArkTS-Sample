@@ -1,17 +1,20 @@
-import router from '@ohos.router';
 /**
  * Desc:
  * @author lijt
  * Created on 2024/3/5
  * Email: lijt@eetrust.com
  */
+@Preview
 @Component
 export struct Toolbar {
-  title: string;
-  menuIcon: Resource;
-  isShowMenu: boolean = true;
-  isShowBack: boolean = true;
-  onMenuClick?: () => void;
+  title?: string
+  titleColor?: Resource
+  menuIcon?: Resource
+  isShowMenu?: boolean = true
+  isShowBack?: boolean = true
+  onMenuClick?: () => void
+  titleMode?: NavigationTitleMode
+  mode?: NavigationMode
 
   @Builder NavigationMenu(menuIcon: Resource) {
     if (this.isShowMenu) {
@@ -25,14 +28,22 @@ export struct Toolbar {
     }
   }
 
+  @Builder CustomTitle(title: ResourceStr, titleColor: ResourceStr) {
+    Row() {
+      Text(title).fontColor(titleColor).fontSize(18)
+        .width('100%')
+        .align(Alignment.Center)
+    }.width('100%')
+    .height(50)
+  }
+
   build() {
     Navigation()
-      .title(this.title)
-      .mode(NavigationMode.Stack)
-      .titleMode(NavigationTitleMode.Mini)
+      .title(this.CustomTitle(this.title, this.titleColor))
+      .mode(this.mode)
+      .titleMode(this.titleMode)
       .hideBackButton(this.isShowBack)
       .width('100%')
-      .height(50)
-      .menus(this.NavigationMenu($r('app.media.icon_search')))
+      .menus(this.NavigationMenu(this.menuIcon))
   }
 }

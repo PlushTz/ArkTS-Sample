@@ -22,6 +22,9 @@ export default class EntryAbility extends UIAbility {
       }
       hilog.info(0x0000, 'testTag', 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
     });
+    windowStage.getMainWindow((error, mainWindow: window.Window) => {
+      // mainWindow.setWindowLayoutFullScreen(true)
+    })
   }
 
   onWindowStageDestroy() {

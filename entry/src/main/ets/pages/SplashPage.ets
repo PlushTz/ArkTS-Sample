@@ -1,9 +1,9 @@
-import router from '@ohos.router';
+import router from '@ohos.router'
 @Preview({title:'SplashView'})
 @Entry
 @Component
 struct SplashPage {
-  @State intervalID: number = 0;
+  @State intervalID: number = 0
 
   build() {
     Column() {
@@ -17,7 +17,7 @@ struct SplashPage {
             delay: 100,
             onFinish: () => {
               setTimeout(() => {
-                router.replaceUrl({ url: 'pages/LoginPage' });
+                router.replaceUrl({ url: 'pages/LoginPage' })
               }, 1000);
             }
           }, () => {

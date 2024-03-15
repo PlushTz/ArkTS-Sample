@@ -27,6 +27,18 @@
     {
       "name": "blue",
       "value": "#197cff"
+    },
+    {
+      "name": "red",
+      "value": "#d81b43"
+    },
+    {
+      "name": "yellow",
+      "value": "#ffeb3c"
+    },
+    {
+      "name": "blue2",
+      "value": "#13518b"
     }
   ]
 }

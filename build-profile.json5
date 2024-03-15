@@ -1,19 +1,32 @@
 {
   "app": {
     "signingConfigs": [
-//      {
-//        "name": "default",
-//        "type": "HarmonyOS",
-//        "material": {
-//          "certpath": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_HarmonyOSDesign_com.eetrust.doshare.harmony_80086000161749438.cer",
-//          "storePassword": "0000001B9FDA62DFFAD4D140D2DC1060B07F057F984F9E3F9AC499F5B34EF0F3D029BA8297093132A07454",
-//          "keyAlias": "debugKey",
-//          "keyPassword": "0000001B2403152AF248CF0A61508A8C7E46DA261AD0D7F2841DBF5DA34EE482D03E1F335269D286D6205F",
-//          "profile": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_HarmonyOSDesign_com.eetrust.doshare.harmony_80086000161749438.p7b",
-//          "signAlg": "SHA256withECDSA",
-//          "storeFile": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_HarmonyOSDesign_com.eetrust.doshare.harmony_80086000161749438.p12"
-//        }
-//      }
+      //      {
+      //        "name": "default",
+      //        "type": "HarmonyOS",
+      //        "material": {
+      //          "certpath": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_HarmonyOSDesign_com.eetrust.doshare.harmony_80086000161749438.cer",
+      //          "storePassword": "0000001B9FDA62DFFAD4D140D2DC1060B07F057F984F9E3F9AC499F5B34EF0F3D029BA8297093132A07454",
+      //          "keyAlias": "debugKey",
+      //          "keyPassword": "0000001B2403152AF248CF0A61508A8C7E46DA261AD0D7F2841DBF5DA34EE482D03E1F335269D286D6205F",
+      //          "profile": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_HarmonyOSDesign_com.eetrust.doshare.harmony_80086000161749438.p7b",
+      //          "signAlg": "SHA256withECDSA",
+      //          "storeFile": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_HarmonyOSDesign_com.eetrust.doshare.harmony_80086000161749438.p12"
+      //        }
+      //      }
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_ArkTS-Sample_com.eetrust.doshare.harmony_80086000161749438.cer",
+          "storePassword": "0000001BE1B2494397EECA435A33FF0C1B432FDEA169EB41098105A5741456C0D58931D0AB546976BB8AF4",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B36F87C767181CD2B3D5E70F460926E8BA56132B2D6F71931221FC882D1ED697567D85672D40F74",
+          "profile": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_ArkTS-Sample_com.eetrust.doshare.harmony_80086000161749438.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_ArkTS-Sample_com.eetrust.doshare.harmony_80086000161749438.p12"
+        }
+      }
     ],
     "compileSdkVersion": 9,
     "compatibleSdkVersion": 9,

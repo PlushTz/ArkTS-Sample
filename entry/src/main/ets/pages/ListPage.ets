@@ -4,8 +4,8 @@
  * Created on 2024/3/13
  * Email: lijt@eetrust.com
  */
+import { ConversationMode } from '../mode/ConversationMode'
 import { ImageMode } from '../mode/ImageMode'
-import { ImageUrl } from '../globle/ImageUrl'
 
 @Styles function downBackgroundColor() {
   .backgroundColor($r('app.color.tab_tv_normal'))
@@ -17,56 +17,26 @@ import { ImageUrl } from '../globle/ImageUrl'
 
 @Component
 export struct ListPage {
-  data: Array<ImageMode> = []
-  onItemClick?: (item: ImageMode) => void
+  data: Array<ConversationMode> = []
+  onItemClick?: (item: ConversationMode) => void
 
   build() {
     Column() {
-      List({ space: 10 }) {
-        ForEach(this.data, (item: ImageMode) => {
+      List() {
+        ForEach(this.data, (item: ConversationMode) => {
           ListItem() {
-            Row() {
-              if (item.index % 2 === 0) {
-                Image(item.url)
-                  .width('100%')
-                  .borderColor($r('app.color.black'))
-                  .objectFit(ImageFit.Contain)
-                  .borderRadius(10)
-                  .interpolation(ImageInterpolation.High)
-                  .onClick(() => {
-
-                  })
-              } else {
-                Image(item.url)
-                  .width('100%')
-                  .borderColor($r('app.color.black'))
-                  .objectFit(ImageFit.Contain)
-                  .borderRadius(10)
-                  .interpolation(ImageInterpolation.High)
-              }
-            }
-            .width('100%')
-            .borderRadius(10)
+            this.ConversationItem(item)
           }.onClick(() => {
             if (this.onItemClick != null && this.onItemClick != undefined) {
               this.onItemClick(item)
             }
-          }).onTouch((event) => {
-            switch (event.type) {
-              case TouchType.Down:
-                console.log('按下了')
-                break
-              case TouchType.Up:
-                console.log('抬起来了')
-                break
-            }
           })
         })
       }
-      .width('95%')
+      .width('100%')
       .height('100%')
       .listDirection(Axis.Vertical) // 排列方向
-      .divider({ strokeWidth: 1, color: 0xFFFFFF, startMargin: 20, endMargin: 20 }) // 每行之间的分界线
+      .divider({ strokeWidth: 0.1, color: $r('app.color.tab_tv_normal'), startMargin: 70 }) // 每行之间的分界线
       .edgeEffect(EdgeEffect.Spring) // 滑动到边缘无效果
       .onScrollIndex((firstIndex: number, lastIndex: number) => {
         console.info('first' + firstIndex)
@@ -76,5 +46,53 @@ export struct ListPage {
     .width('100%')
     .height('100%')
     .padding({ top: 5 })
+
+  }
+
+  @Builder ConversationItem(item: ConversationMode) {
+    Row() {
+      Stack() {
+        Image(item.avatar)
+          .width(50)
+          .height(50)
+          .borderRadius(5)
+          .objectFit(ImageFit.Auto)
+      }
+      .margin({ left: 10, right: 10 })
+      .alignContent(Alignment.Center)
+
+      Column() {
+        Row() {
+          Text(item.title)
+            .width('100')
+            .fontSize(16)
+            .fontColor($r('app.color.black'))
+            .layoutWeight(1)
+            .align(Alignment.Center)
+          Text(item.date)
+            .width(50)
+            .fontSize(12)
+            .fontColor($r('app.color.tab_tv_normal'))
+            .align(Alignment.Center)
+        }.width('100%')
+        .layoutWeight(1)
+
+        Row() {
+          Text(item.previewMsg)
+            .fontSize(13)
+            .fontColor($r('app.color.tab_tv_normal'))
+            .maxLines(1)
+            .textOverflow({ overflow: TextOverflow.Ellipsis })
+            .align(Alignment.Center)
+            .layoutWeight(1)
+          Blank().width(50)
+        }
+        .width('100%')
+        .layoutWeight(1)
+      }.layoutWeight(1)
+      .align(Alignment.Center)
+      .height(50)
+    }.width('100%')
+    .height(60)
   }
 }
