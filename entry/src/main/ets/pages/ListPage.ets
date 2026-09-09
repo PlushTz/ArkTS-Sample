@@ -7,11 +7,13 @@
 import { ConversationMode } from '../mode/ConversationMode'
 import { ImageMode } from '../mode/ImageMode'
 
-@Styles function downBackgroundColor() {
+@Styles
+function downBackgroundColor() {
   .backgroundColor($r('app.color.tab_tv_normal'))
 }
 
-@Styles function upBackgroundColor() {
+@Styles
+function upBackgroundColor() {
   .backgroundColor($r('app.color.white'))
 }
 
@@ -23,7 +25,7 @@ export struct ListPage {
   build() {
     Column() {
       List() {
-        ForEach(this.data, (item: ConversationMode) => {
+        ForEach(this.data, (item: ConversationMode, index?: number) => {
           ListItem() {
             this.ConversationItem(item)
           }.onClick(() => {
@@ -31,7 +33,7 @@ export struct ListPage {
               this.onItemClick(item)
             }
           })
-        })
+        }, (item: ConversationMode) => JSON.stringify(item))
       }
       .width('100%')
       .height('100%')
@@ -49,7 +51,8 @@ export struct ListPage {
 
   }
 
-  @Builder ConversationItem(item: ConversationMode) {
+  @Builder
+  ConversationItem(item: ConversationMode) {
     Row() {
       Stack() {
         Image(item.avatar)

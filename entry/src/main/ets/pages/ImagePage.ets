@@ -9,6 +9,7 @@ struct ImagePage {
 
   build() {
     Scroll(this.scroller) {
+
       Column() {
         Image($r('app.media.icon'))
           .width(250)

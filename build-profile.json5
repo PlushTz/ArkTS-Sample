@@ -5,22 +5,28 @@
         "name": "default",
         "type": "HarmonyOS",
         "material": {
-          "certpath": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_ArkTS-Sample_com.eetrust.doshare.harmony_80086000161749438.cer",
-          "storePassword": "0000001BD0474251E2E5347398CB36885F9F5736504281F2BBE45E1C8FAA9A53507207BE2C125801D041CC",
+          "certpath": "C:\\Users\\eetrust\\.ohos\\config\\default_ArkTS-Sample_nrHMM_1squ_FvnoiXSkh05iZXb-rcs5dovSKm4-JEms=.cer",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B775387CC050761363ECF297D7EFBEB2E6A7BC48DA78A672728227A208E66A3985609794C3BB538",
-          "profile": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_ArkTS-Sample_com.eetrust.doshare.harmony_80086000161749438.p7b",
+          "keyPassword": "0000001BDCB0133FE8734A493C0213A9222CFBE0470A2938F29620C2C30E63B73F519D00CD8CA27FC73FA0",
+          "profile": "C:\\Users\\eetrust\\.ohos\\config\\default_ArkTS-Sample_nrHMM_1squ_FvnoiXSkh05iZXb-rcs5dovSKm4-JEms=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:\\Users\\eetrust\\.ohos\\config\\auto_debug_ArkTS-Sample_com.eetrust.doshare.harmony_80086000161749438.p12"
+          "storeFile": "C:\\Users\\eetrust\\.ohos\\config\\default_ArkTS-Sample_nrHMM_1squ_FvnoiXSkh05iZXb-rcs5dovSKm4-JEms=.p12",
+          "storePassword": "0000001BE499822FFA43591A599C38ED821331B0F6798BC764C809302D3FF79740B124AAC0B866E83F3CAB"
         }
       }
     ],
-    "compileSdkVersion": 9,
-    "compatibleSdkVersion": 9,
     "products": [
       {
         "name": "default",
         "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS",
+        "targetSdkVersion": "6.1.1(24)",
+        "buildOption": {
+          "strictMode": {
+            "useNormalizedOHMUrl": true
+          }
+        }
       }
     ]
   },

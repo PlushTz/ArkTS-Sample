@@ -1,8 +1,15 @@
+import { HMRouter } from '@hadss/hmrouter'
 import router from '@ohos.router'
-@Preview({title:'SplashView'})
+
+@Preview({ title: 'SplashView' })
+@HMRouter({
+  pageUrl: 'SplashPage',
+  lifecycle: 'pageLifecycle',
+  animator: 'pageAnimator'
+})
 @Entry
 @Component
-struct SplashPage {
+export struct SplashPage {
   @State intervalID: number = 0
 
   build() {
@@ -12,16 +19,7 @@ struct SplashPage {
         .objectFit(ImageFit.None)
         .height('100%')
         .onAppear(() => {
-          animateTo({
-            duration: 500,
-            delay: 100,
-            onFinish: () => {
-              setTimeout(() => {
-                router.replaceUrl({ url: 'pages/LoginPage' })
-              }, 1000);
-            }
-          }, () => {
-          })
+
         })
     }.width('100%')
     .height('100%')

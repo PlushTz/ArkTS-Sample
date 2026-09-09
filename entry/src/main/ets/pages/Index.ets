@@ -1,76 +1,37 @@
-import hilog from '@ohos.hilog'
-import router from '@ohos.router'
-import common from '@ohos.app.ability.common'
+import { HMDefaultGlobalAnimator, HMNavigation } from '@hadss/hmrouter'
+import { AttributeUpdater } from '@kit.ArkUI'
+import { C } from '../utils/Class'
 
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Hello World'
+  navModifier = new NavModifier()
+
+  aboutToAppear(): void {
+    let c = new C(1);
+    c.foo(1212121, false)
+    c.foo('x1', true)
+    c.foo('x2', false)
+    c.foo('2', false, '123')
+  }
 
   build() {
-    Row() {
-      Column() {
-        Text(this.message)
-        // ButtonType 按钮样式
-        Button(this.message, { type: ButtonType.Normal, stateEffect: true }).width('40%')
-          .onClick(() => {
-            this.message = "ArkTs"
-            hilog.error(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
-          })
-            // 设置圆角
-          .borderRadius(5)
-
-        Button('胶囊样式', { type: ButtonType.Capsule, stateEffect: true }).margin({ top: 10 }).width('50%')
-
-        // Button('圆形', { type: ButtonType.Circle, stateEffect: true }).margin({ top: 10 }).width('15%')
-
-        Button('路由跳转').width('100').height('40').onClick(() => {
-          router.pushUrl({
-            url: 'pages/Second'
-          }, router.RouterMode.Standard, (err) => {
-            if (err) {
-              console.error(`Invoke pushUrl failed, code is ${err.code}, message is ${err.message}`)
-              return;
-              console.info('Invoke pushUrl succeeded.')
-            }
-          })
-        }).margin({ top: 10 })
-
-        Button('跳转Ability', { type: ButtonType.Normal, stateEffect: true })
-          .margin({ top: 10, left: 10, right: 10 })
-          .width('100%')
-          .borderRadius(5).onClick(() => {
-          this.startSecondAbility('SecondAbility')
-        })
-      }
-      .width('100%')
-      .height('100%')
-      .backgroundColor($r('app.color.black'))
+    Column() {
+      HMNavigation({
+        navigationId: 'indexNavigation', homePageUrl: 'CustomComponentPage', options: {
+          standardAnimator: HMDefaultGlobalAnimator.STANDARD_ANIMATOR,
+          dialogAnimator: HMDefaultGlobalAnimator.DIALOG_ANIMATOR,
+          modifier: this.navModifier
+        }
+      })
     }
     .width('100%')
     .height('100%')
-    // .backgroundColor()
   }
+}
 
-  startSecondAbility(name: string) {
-    try {
-      let want = {
-        deviceId: '', // deviceId为空表示本设备
-        bundleName: 'com.example.myapplication',
-        abilityName: name,
-        parameters: {
-          // from: 'OpenPage.ets',
-          data: {
-            hello: 'word',
-            who: 'please'
-          }
-        }
-      };
-      let context = getContext(this) as common.UIAbilityContext;
-      context.startAbility(want);
-      console.info(`explicit start ability succeed`)
-    } catch (error) {
-      console.info(`explicit start ability failed with ${error.code}`)
-    }
+class NavModifier extends AttributeUpdater<NavigationAttribute> {
+  override initializeModifier(instance: NavigationAttribute): void {
+    instance.hideNavBar(true)
   }
 }

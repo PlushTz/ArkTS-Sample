@@ -39,6 +39,18 @@
     {
       "name": "blue2",
       "value": "#13518b"
+    },
+    {
+      "name": "color_01",
+      "value": "#F5DEB3"
+    },
+    {
+      "name": "color_02",
+      "value": "#D2B48C"
+    },
+    {
+      "name": "color_03",
+      "value": "#F5DEB3"
     }
   ]
 }

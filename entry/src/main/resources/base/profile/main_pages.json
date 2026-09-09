@@ -4,6 +4,8 @@
     "pages/Index",
     "pages/HomePage",
     "pages/ImagePage",
-    "pages/LoginPage"
+    "pages/LoginPage",
+    "pages/NavigationPage",
+    "pages/DynamicLayoutPage"
   ]
 }

@@ -6,5 +6,8 @@
   "description": "Please describe the basic information.",
   "main": "",
   "version": "1.0.0",
-  "dependencies": {}
+  "dependencies": {
+//    "@hadss/hmrouter": "^1.2.4",
+//    "@hadss/hmrouter-transitions": "^1.2.4"
+  }
 }

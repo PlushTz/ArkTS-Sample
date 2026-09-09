@@ -15,12 +15,12 @@ class HttpUtils {
       header: {
         'Content-Type': 'application/json'
       },
-      // extraData: {
-      //   "key": NetUrl.WEB_KEY,
-      //   "city": city,
-      //   "extensions": "base",
-      //   "out": "JSON"
-      // },
+      extraData: {
+        "key": NetUrl.WEB_KEY,
+        "city": city,
+        "extensions": "base",
+        "out": "JSON"
+      },
       expectDataType: http.HttpDataType.STRING, // 可选，指定返回数据的类型
       usingCache: true, // 可选，默认为true
       priority: 1, // 可选，默认为1

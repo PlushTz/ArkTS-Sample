@@ -1,10 +1,12 @@
+import { HMRouter } from '@hadss/hmrouter';
 import { ChatPage } from './ChatPage'
 import { ContactPage } from './ContactPage'
 import { PersonPage } from './PersonPage'
 
+@HMRouter({ pageUrl: 'HomePage' })
 @Entry
 @Component
-struct HomePage {
+export struct HomePage {
   private tabsController = new TabsController();
   @State currentIndex: number = 0;
 
@@ -17,12 +19,14 @@ struct HomePage {
       TabContent() {
         ContactPage()
       }
-      .tabBar(this.TabBuilder('通讯录', 1, $r('app.media.tabbar_contact_visited_icon'), $r('app.media.tabbar_contact_icon')))
+      .tabBar(
+        this.TabBuilder('通讯录', 1, $r('app.media.tabbar_contact_visited_icon'), $r('app.media.tabbar_contact_icon')))
 
       TabContent() {
         PersonPage()
       }
-      .tabBar(this.TabBuilder('个人中心', 2, $r('app.media.tabbar_person_visited_icon'), $r('app.media.tabbar_person_icon')))
+      .tabBar(
+        this.TabBuilder('个人中心', 2, $r('app.media.tabbar_person_visited_icon'), $r('app.media.tabbar_person_icon')))
     }.onChange((index) => {
       this.currentIndex = index;
     })

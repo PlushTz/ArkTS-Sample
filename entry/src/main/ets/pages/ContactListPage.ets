@@ -22,59 +22,59 @@ export struct ContactListPage {
     Stack({ alignContent: Alignment.Start }) {
       Row() {
         List({ space: 20, initialIndex: 0 }) {
-          ForEach(this.arrayA, (item) => {
+          ForEach(this.arrayA, (item: string, index?: number) => {
             ListItem() {
               Text(item)
                 .width('80%')
                 .height('5%')
                 .fontSize(30)
                 .textAlign(TextAlign.Center)
-            }.editable(true)
-          }, item => item)
+            }
+          }, (item: string) => item)
 
-          ForEach(this.arrayB, (item) => {
+          ForEach(this.arrayB, (item: string, index?: number) => {
             ListItem() {
               Text(item)
                 .width('80%')
                 .height('5%')
                 .fontSize(30)
                 .textAlign(TextAlign.Center)
-            }.editable(true)
-          }, item => item)
+            }
+          }, (item: string) => item)
 
-          ForEach(this.arrayC, (item) => {
+          ForEach(this.arrayC, (item: string, index?: number) => {
             ListItem() {
               Text(item)
                 .width('80%')
                 .height('5%')
                 .fontSize(30)
                 .textAlign(TextAlign.Center)
-            }.editable(true)
-          }, item => item)
+            }
+          }, (item: string) => item)
 
-          ForEach(this.arrayL, (item) => {
+          ForEach(this.arrayL, (item: string, index?: number) => {
             ListItem() {
               Text(item)
                 .width('80%')
                 .height('5%')
                 .fontSize(30)
                 .textAlign(TextAlign.Center)
-            }.editable(true)
-          }, item => item)
+            }
+          }, (item: string) => item)
         }
         .layoutWeight(1)
         .height('100%')
 
         AlphabetIndexer({ arrayValue: this.value, selected: 0 })
-          .selectedColor(0xFFFFFF) // 选中项文本颜色
-          .popupColor(0xFFFAF0) // 弹出框文本颜色
-          .selectedBackgroundColor(0xCCCCCC) // 选中项背景颜色
-          .popupBackground(0xD2B48C) // 弹出框背景颜色
-          .usingPopup(true) // 是否显示弹出框
-          .selectedFont({ size: 16, weight: FontWeight.Bolder }) // 选中项字体样式
-          .popupFont({ size: 30, weight: FontWeight.Bolder }) // 弹出框内容的字体样式
-          .itemSize(28) // 每一项的尺寸大小
-          .alignStyle(IndexerAlign.Right) // 弹出框在索引条右侧弹出
+          .selectedColor(0xFFFFFF)// 选中项文本颜色
+          .popupColor(0xFFFAF0)// 弹出框文本颜色
+          .selectedBackgroundColor(0xCCCCCC)// 选中项背景颜色
+          .popupBackground(0xD2B48C)// 弹出框背景颜色
+          .usingPopup(true)// 是否显示弹出框
+          .selectedFont({ size: 16, weight: FontWeight.Bolder })// 选中项字体样式
+          .popupFont({ size: 30, weight: FontWeight.Bolder })// 弹出框内容的字体样式
+          .itemSize(28)// 每一项的尺寸大小
+          .alignStyle(IndexerAlign.Right)// 弹出框在索引条右侧弹出
           .onSelect((index: number) => {
             console.info(this.value[index] + ' Selected!')
           })

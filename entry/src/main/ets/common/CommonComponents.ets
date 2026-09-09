@@ -7,16 +7,16 @@
 @Preview
 @Component
 export struct Toolbar {
-  title?: string
-  titleColor?: Resource
-  menuIcon?: Resource
+  title?: ResourceStr
+  titleColor?: ResourceStr
+  menuIcon?: ResourceStr
   isShowMenu?: boolean = true
   isShowBack?: boolean = true
   onMenuClick?: () => void
   titleMode?: NavigationTitleMode
   mode?: NavigationMode
 
-  @Builder NavigationMenu(menuIcon: Resource) {
+  @Builder NavigationMenu(menuIcon?: ResourceStr) {
     if (this.isShowMenu) {
       Row() {
         Image(menuIcon).onClick(() => {
@@ -28,7 +28,7 @@ export struct Toolbar {
     }
   }
 
-  @Builder CustomTitle(title: ResourceStr, titleColor: ResourceStr) {
+  @Builder CustomTitle(title?: ResourceStr, titleColor?: ResourceStr) {
     Row() {
       Text(title).fontColor(titleColor).fontSize(18)
         .width('100%')
