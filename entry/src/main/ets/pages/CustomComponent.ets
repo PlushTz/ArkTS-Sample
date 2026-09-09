@@ -46,8 +46,16 @@ export struct CustomComponentPage {
         })
       })
 
-      Button('').onClick(() => {
-        HMRouterMgr.push({})
+      Button('PreloadStateMonitorPage').margin({ top: 10 }).onClick(() => {
+        HMRouterMgr.push({ pageUrl: 'PreloadStateMonitorPage' })
+      })
+
+      Button('VisibilityActivePage').margin({ top: 10 }).onClick(() => {
+        HMRouterMgr.push({ pageUrl: 'VisibilityActivePage' })
+      })
+
+      Button('CustomLayoutPage').margin({ top: 10 }).onClick(() => {
+        HMRouterMgr.push({ pageUrl: 'CustomLayoutPage' })
       })
 
     }.width('100%')
@@ -59,29 +67,35 @@ export struct CustomComponentPage {
 struct Child {
   @ComponentReuse
   onReuse() {
+    // 组件复用时触发
     console.info('Child onReuse');
   }
 
   aboutToReuse() {
+    // 组件复用时触发
     console.info('Child aboutToReuse');
   }
 
   @ComponentActive
   onActive() {
+    // 组件从非激活状态变为激活状态时触发
     console.info('Child onActive');
   }
 
   @ComponentRecycle
   onRecycle() {
+    // 组件进入复用池时触发
     console.info('Child onRecycle');
   }
 
   aboutToRecycle(): void {
+    // 组件进入复用池时触发
     console.info('Child aboutToRecycle');
   }
 
   @ComponentInactive
   onInActive() {
+    // 组件从激活状态变为非激活状态时触发
     console.info('Child onInActive');
   }
 
