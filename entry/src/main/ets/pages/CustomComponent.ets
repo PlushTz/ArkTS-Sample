@@ -1,5 +1,13 @@
 import { HMRouter, HMRouterMgr } from '@hadss/hmrouter';
-import { ComponentActive, ComponentInactive, ComponentRecycle, ComponentReuse } from '@kit.ArkUI';
+import {
+  Binding,
+  ComponentActive,
+  ComponentInactive,
+  ComponentRecycle,
+  ComponentReuse,
+  MutableBinding,
+  UIUtils
+} from '@kit.ArkUI';
 
 /**
  * Desc:
@@ -7,61 +15,6 @@ import { ComponentActive, ComponentInactive, ComponentRecycle, ComponentReuse } 
  * Created on 2026/9/8
  * Email: lijt@eetrust.com
  */
-@HMRouter({ pageUrl: 'CustomComponentPage' })
-@Entry
-@Component
-export struct CustomComponentPage {
-  @State changeChild: boolean = false
-
-  build() {
-    Column() {
-      Button('change').margin(10).onClick(() => {
-        this.changeChild = !this.changeChild;
-      })
-      if (this.changeChild) {
-        Child()
-      }
-
-      Button('PageOne').onClick(() => {
-        HMRouterMgr.push({ pageUrl: 'PageOne' }, {
-          onResult: (info: PopInfo) => {
-            console.info(`PopInfo = ${info}`)
-          }, onArrival: () => {
-            console.info('onArrival')
-          }, onLost: () => {
-            console.info('onLost')
-          }
-        })
-      }).margin({ bottom: 10 })
-
-      Button('PageTwo').onClick(() => {
-        HMRouterMgr.pushAsync({ pageUrl: 'PageTwo' }, {
-          onResult: (popInfo: PopInfo) => {
-            console.info(`PopInfo = ${popInfo}}`)
-          }, onArrival: () => {
-            console.info('onArrival')
-          }, onLost: () => {
-            console.info('onLost')
-          }
-        })
-      })
-
-      Button('PreloadStateMonitorPage').margin({ top: 10 }).onClick(() => {
-        HMRouterMgr.push({ pageUrl: 'PreloadStateMonitorPage' })
-      })
-
-      Button('VisibilityActivePage').margin({ top: 10 }).onClick(() => {
-        HMRouterMgr.push({ pageUrl: 'VisibilityActivePage' })
-      })
-
-      Button('CustomLayoutPage').margin({ top: 10 }).onClick(() => {
-        HMRouterMgr.push({ pageUrl: 'CustomLayoutPage' })
-      })
-
-    }.width('100%')
-  }
-}
-
 @Reusable
 @Component
 struct Child {
@@ -101,5 +54,112 @@ struct Child {
 
   build() {
     Text('Child')
+  }
+}
+
+@Builder
+function customButton(num1: Binding<number>, num2: MutableBinding<number>) {
+  Row() {
+    Column() {
+      Text(`number1:${num1.value}，number2:${num2.value}`)
+      Button(`only change number2`).onClick((event: ClickEvent) => {
+        num2.value += 1
+      })
+    }
+  }
+}
+
+
+@HMRouter({ pageUrl: 'ParameterMakeBinding' })
+@ComponentV2
+export struct ParameterMakeBinding {
+  @Local number1: number = 1
+  @Local number2: number = 0
+
+  build() {
+    Column() {
+      customButton(UIUtils.makeBinding(() => {
+        return this.number1
+      }), UIUtils.makeBinding(() => {
+        return this.number2
+      }, (value: number) => {
+        this.number2 = value
+      }))
+    }
+  }
+}
+
+@ObservedV2
+class Tmp {
+  @Trace paramA1 = ''
+}
+
+@Builder
+function overBuilderByReference(tmp: Tmp) {
+  Row() {
+    Text(`UseStateVarByReference:${tmp.paramA1}`)
+  }
+}
+
+@HMRouter({ pageUrl: 'ParameterReference' })
+@Component
+export struct ParameterReference {
+  // @State label: string = 'Hello'
+
+  tmp = new Tmp()
+
+  build() {
+    Column() {
+      overBuilderByReference({ paramA1: this.tmp.paramA1 })
+      Button('Click me').onClick((event: ClickEvent) => {
+        this.tmp.paramA1 = 'ArkUI'
+      })
+    }
+  }
+}
+
+@HMRouter({ pageUrl: 'PrivateBuilder' })
+@Component
+export struct PrivateBuilder {
+  @State builderValue: string = 'Hello';
+
+  @Builder
+  builder() {
+    Column() {
+      Text(this.builderValue)
+        .width(230)
+        .height(40)
+        .backgroundColor('#ffeae5e5')
+        .borderRadius(20)
+        .margin(12)
+        .textAlign(TextAlign.Center)
+    }
+  }
+
+  aboutToAppear(): void {
+    setTimeout(() => {
+      this.builderValue = 'Hello World';
+    }, 2000);
+  }
+
+  build() {
+    Row() {
+      Column() {
+        Text(this.builderValue)
+          .width(230)
+          .height(40)
+          .backgroundColor('#ffeae5e5')
+          .borderRadius(20)
+          .textAlign(TextAlign.Center)
+        this.builder()
+        // 点击Button更新builderValue，用于更新文本显示
+        Button('Click to change the builderValue')
+          .onClick(() => {
+            this.builderValue = 'builderValue was clicked';
+          })
+      }
+      .height('100%')
+      .width('100%')
+    }
   }
 }

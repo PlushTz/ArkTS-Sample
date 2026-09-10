@@ -18,7 +18,7 @@ struct Index {
   build() {
     Column() {
       HMNavigation({
-        navigationId: 'indexNavigation', homePageUrl: 'CustomComponentPage', options: {
+        navigationId: 'indexNavigation', homePageUrl: 'CustomComponentList', options: {
           standardAnimator: HMDefaultGlobalAnimator.STANDARD_ANIMATOR,
           dialogAnimator: HMDefaultGlobalAnimator.DIALOG_ANIMATOR,
           modifier: this.navModifier

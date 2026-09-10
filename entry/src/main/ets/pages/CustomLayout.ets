@@ -6,24 +6,22 @@ import { HMRouter } from '@hadss/hmrouter';
  * Created on 2026/9/9
  * Email: lijt@eetrust.com
  */
+const borderColors: number[] = [0xFFC0CB, 0xDA70D6, 0x6B8E23, 0x6A5ACD, 0x00FFFF, 0x00FF7F]
+
 @HMRouter({ pageUrl: 'CustomLayoutPage' })
 @Component
 export struct CustomLayoutPage {
-  borderColors: number[] = [0xFFC0CB, 0xDA70D6, 0x6B8E23, 0x6A5ACD, 0x00FFFF, 0x00FF7F]
-
   build() {
     Column() {
       CustomLayout({
-        builder: (): void => {
-          columnChildren(this.borderColors)
-        }
-      }).background(Color.Brown)
-    }
+        builder: columnChildren
+      }).background($r('app.color.color_03'))
+    }.width('100%').height('100%').background($r('app.color.blue2'))
   }
 }
 
 @Builder
-function columnChildren(borderColors: number[]) {
+function columnChildren() {
   ForEach([1, 2, 3], (item: number, index: number) => {
     Text('S' + item)
       .fontSize(30)
@@ -42,7 +40,6 @@ struct CustomLayout {
   }
 
   @BuilderParam builder: () => void = this.doNothingBuilder
-
   result: SizeResult = {
     width: 0,
     height: 0
