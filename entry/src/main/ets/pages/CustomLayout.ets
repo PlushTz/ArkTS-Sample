@@ -13,33 +13,34 @@ const borderColors: number[] = [0xFFC0CB, 0xDA70D6, 0x6B8E23, 0x6A5ACD, 0x00FFFF
 export struct CustomLayoutPage {
   build() {
     Column() {
-      CustomLayout({
-        builder: columnChildren
-      }).background($r('app.color.color_03'))
+      CustomLayout({ borderColors: borderColors, builder: columnChildren }).background($r('app.color.color_03'))
     }.width('100%').height('100%').background($r('app.color.blue2'))
   }
 }
 
 @Builder
-function columnChildren() {
+function columnChildren(colors: number[]) {
   ForEach([1, 2, 3], (item: number, index: number) => {
     Text('S' + item)
       .fontSize(30)
       .width(100)
       .height(100)
       .borderWidth(2)
-      .borderColor(borderColors[index])
+      .borderColor(colors[index])
       .offset({ x: 10, y: 20 })
   })
 }
 
 @Component
 struct CustomLayout {
+
   @Builder
-  doNothingBuilder() {
+  doNothingBuilder(borderColors: number[]) {
   }
 
-  @BuilderParam builder: () => void = this.doNothingBuilder
+  @BuilderParam builder: (borderColors: number[]) => void = this.doNothingBuilder
+  borderColors: number[] = []
+
   result: SizeResult = {
     width: 0,
     height: 0
@@ -73,6 +74,6 @@ struct CustomLayout {
   }
 
   build() {
-    this.builder()
+    this.builder(this.borderColors)
   }
 }

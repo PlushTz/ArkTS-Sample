@@ -51,3 +51,45 @@ export struct Parent {
     .width('100%')
   }
 }
+
+class Tmp {
+  public colors: number[] = []
+}
+
+@Builder
+function overBuilder(tmp: Tmp) {
+  ForEach(tmp.colors, (color: number, index: number) => {
+    Text(`${index}}`).width('100%').height(50).backgroundColor(color)
+  })
+}
+
+@Component
+struct Child_Params {
+  label: string = ''
+  colors: number[] = [0xFFC0CB, 0xDA70D6, 0x6B8E23, 0x6A5ACD, 0x00FFFF, 0x00FF7F]
+
+  aboutToAppear(): void {
+  }
+
+  @Builder
+  customBuilder() {
+  }
+
+  @BuilderParam customOverBuilderParam: (tmp: Tmp) => void = overBuilder
+
+  build() {
+    Column() {
+      this.customOverBuilderParam({ colors: this.colors })
+    }
+  }
+}
+
+@HMRouter({ pageUrl: 'Parent_Params' })
+@Component
+export struct Parent_Params {
+  build() {
+    Column() {
+      Child_Params({ customOverBuilderParam: overBuilder })
+    }
+  }
+}

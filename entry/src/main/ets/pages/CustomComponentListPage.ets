@@ -26,6 +26,7 @@ export struct CustomComponentList {
     this.customComponents.push({ text: 'ParameterReference', pageUrl: 'ParameterReference' })
     this.customComponents.push({ text: 'PrivateBuilder', pageUrl: 'PrivateBuilder' })
     this.customComponents.push({ text: 'ParentChild', pageUrl: 'ParentChild' })
+    this.customComponents.push({ text: 'Parent_Params', pageUrl: 'Parent_Params' })
   }
 
   build() {
