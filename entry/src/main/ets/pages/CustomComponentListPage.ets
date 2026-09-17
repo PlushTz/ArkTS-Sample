@@ -27,6 +27,10 @@ export struct CustomComponentList {
     this.customComponents.push({ text: 'PrivateBuilder', pageUrl: 'PrivateBuilder' })
     this.customComponents.push({ text: 'ParentChild', pageUrl: 'ParentChild' })
     this.customComponents.push({ text: 'Parent_Params', pageUrl: 'Parent_Params' })
+    this.customComponents.push({ text: 'TodoList', pageUrl: 'TodoList' })
+    this.customComponents.push({ text: 'LocalDecorator', pageUrl: 'LocalDecorator' })
+    this.customComponents.push({ text: 'LocalTraceExample', pageUrl: 'LocalTraceExample' })
+    this.customComponents.push({ text: 'MyComponent', pageUrl: 'MyComponent' })
   }
 
   build() {

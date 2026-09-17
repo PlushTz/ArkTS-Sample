@@ -5,13 +5,13 @@
         "name": "default",
         "type": "HarmonyOS",
         "material": {
-          "certpath": "/Users/cat/.ohos/config/default_ArkTS-Sample_7wiFxHmyDTMFazou_njFVCixJK6CY1W6on5aQLbr_Lk=.cer",
+          "certpath": "C:\\Users\\eetrust\\.ohos\\config\\default_ArkTS-Sample_nrHMM_1squ_FvnoiXSkh05iZXb-rcs5dovSKm4-JEms=.cer",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B514C86B2FD5A197C3709C9A177C521BC0B65828C0B3A0960ABB935C58293E1E14DB4FC2DED6CFA",
-          "profile": "/Users/cat/.ohos/config/default_ArkTS-Sample_7wiFxHmyDTMFazou_njFVCixJK6CY1W6on5aQLbr_Lk=.p7b",
+          "keyPassword": "0000001BBAC706D4B53C7F2302E37E7A2BCD5299698EFDCD891840BDE2EBD407247749F16B0C2926FCB1B1",
+          "profile": "C:\\Users\\eetrust\\.ohos\\config\\default_ArkTS-Sample_nrHMM_1squ_FvnoiXSkh05iZXb-rcs5dovSKm4-JEms=.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "/Users/cat/.ohos/config/default_ArkTS-Sample_7wiFxHmyDTMFazou_njFVCixJK6CY1W6on5aQLbr_Lk=.p12",
-          "storePassword": "0000001BCD5A0633A935E96D5709608B17E32509479A64480D137972BD92499B793AA8BBF691BE0EB75B96"
+          "storeFile": "C:\\Users\\eetrust\\.ohos\\config\\default_ArkTS-Sample_nrHMM_1squ_FvnoiXSkh05iZXb-rcs5dovSKm4-JEms=.p12",
+          "storePassword": "0000001B1927D73154BEF6941F022E02E7C4BA1978365F9378C144BA6B13178E6D4858339F6EFA31B220AD"
         }
       }
     ],

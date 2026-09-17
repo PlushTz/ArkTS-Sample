@@ -53,7 +53,7 @@ const builderArr: WrappedBuilder<[string, number]>[] = [wrapBuilder(myBuilder0),
 
 @HMRouter({ pageUrl: 'IndexItem' })
 @Component
-struct IndexItem {
+export struct IndexItem {
   @Builder
   IndexItem() {
     // IndexItem使用ForEach进行不同@Builder函数的渲染

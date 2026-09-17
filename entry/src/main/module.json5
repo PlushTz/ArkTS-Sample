@@ -3,7 +3,6 @@
     "requestPermissions": [
       {
         "name": "ohos.permission.INTERNET",
-        "name": "ohos.permission.ACCESS_DDK_USB"
       }
     ],
     "name": "entry",
