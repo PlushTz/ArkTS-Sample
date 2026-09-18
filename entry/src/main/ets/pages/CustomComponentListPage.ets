@@ -31,6 +31,9 @@ export struct CustomComponentList {
     this.customComponents.push({ text: 'LocalDecorator', pageUrl: 'LocalDecorator' })
     this.customComponents.push({ text: 'LocalTraceExample', pageUrl: 'LocalTraceExample' })
     this.customComponents.push({ text: 'MyComponent', pageUrl: 'MyComponent' })
+    this.customComponents.push({ text: 'Provider$Consumer_01', pageUrl: 'Provider$Consumer_01' })
+    this.customComponents.push({ text: 'RemoChildDisconnectProvider', pageUrl: 'RemoChildDisconnectProvider' })
+    this.customComponents.push({ text: 'Monitor', pageUrl: 'Monitor' })
   }
 
   build() {
