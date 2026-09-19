@@ -21,6 +21,46 @@
       "value": "#abaeb1"
     },
     {
+      "name": "out_tab_bar_font_inactive_color",
+      "value": "#E6000000"
+    },
+    {
+      "name": "content_item_text_color",
+      "value": "#FFCAC8C8"
+    },
+    {
+      "name": "in_tab_bar_text_normal_color",
+      "value": "#E6000000"
+    },
+    {
+      "name": "in_tab_bar_background_active_color",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "in_tab_bar_background_inactive_color",
+      "value": "#E6E8E9"
+    },
+    {
+      "name": "out_tab_bar_font_active_color",
+      "value": "#3388FF"
+    },
+    {
+      "name": "other_tab_content_default_color",
+      "value": "#E67C92"
+    },
+    {
+      "name": "search_bar_input_color",
+      "value": "#E6E8E9"
+    },
+    {
+      "name": "search_bar_button_color",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "out_tab_bar_background_color",
+      "value": "#F1F3F5"
+    },
+    {
       "name": "white",
       "value": "#FFFFFF"
     },

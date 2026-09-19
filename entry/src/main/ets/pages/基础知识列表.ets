@@ -34,6 +34,8 @@ export struct CustomComponentList {
     this.customComponents.push({ text: 'Provider$Consumer_01', pageUrl: 'Provider$Consumer_01' })
     this.customComponents.push({ text: 'RemoChildDisconnectProvider', pageUrl: 'RemoChildDisconnectProvider' })
     this.customComponents.push({ text: 'Monitor', pageUrl: 'Monitor' })
+    this.customComponents.push({ text: 'Computed', pageUrl: 'Computed' })
+    this.customComponents.push({ text: '@ComputedExample02', pageUrl: '@ComputedExample02' })
   }
 
   build() {
